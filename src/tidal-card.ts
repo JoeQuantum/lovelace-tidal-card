@@ -110,7 +110,7 @@ class TidalCard extends LitElement {
   }
 
   getCardSize(): number {
-    return 7;
+    return 3;
   }
 
   getGridOptions() {
@@ -310,29 +310,32 @@ class TidalCard extends LitElement {
       ? formatCountdown(this._now.getTime(), new Date(this._nextEvent.t).getTime())
       : '';
 
+    const isNegative = this._currentHeight !== null && this._currentHeight < 0;
+    const displayDigits = this._currentHeight !== null
+      ? Math.abs(this._currentHeight).toFixed(1)
+      : '--';
+
     return html`
       <ha-card>
-        <div class="header">
-          <svg class="wave-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 12c2-3 4-4.5 6-4.5s4 3 6 3 4-3 6-3 3 1.5 4 4.5"
-              fill="none" stroke="var(--primary-text-color)" stroke-width="1.5" stroke-linecap="round" />
-            <path d="M2 17c2-3 4-4.5 6-4.5s4 3 6 3 4-3 6-3 3 1.5 4 4.5"
-              fill="none" stroke="var(--primary-text-color)" stroke-width="1.5" stroke-linecap="round" opacity="0.4" />
-          </svg>
-          <div>
-            ${directionLabel
-              ? html`<div class="tide-direction"><span class="direction-arrow">${directionArrow}</span> ${directionLabel}</div>`
-              : ''}
-            <div class="hero-height">
-              ${this._currentHeight !== null ? this._currentHeight.toFixed(1) : '--'}
-              <span style="font-size: 0.3em; font-weight: 400;">ft</span>
+        <div class="hero">
+          <div class="hero-left">
+            <div class="hero-number-row">
+              ${isNegative ? html`<span class="hero-sign">\u2212</span>` : ''}
+              <div class="hero-digits-col">
+                <span class="hero-number">${displayDigits}</span>
+                ${directionLabel
+                  ? html`<div class="hero-direction"><span class="arrow">${directionArrow}</span> ${directionLabel}</div>`
+                  : ''}
+              </div>
+              <span class="hero-unit">ft</span>
             </div>
-            ${countdown
-              ? html`<div class="next-event">
-                  Next ${nextEventType} in ${countdown}
-                </div>`
-              : ''}
           </div>
+          ${countdown
+            ? html`<div class="hero-right">
+                <div class="countdown-label">Next ${nextEventType} in</div>
+                <div class="countdown-time">${countdown}</div>
+              </div>`
+            : ''}
         </div>
 
         <div class="chart-container">

@@ -18,57 +18,93 @@ export const styles = css`
   }
 
   ha-card {
-    padding: 16px;
     overflow: hidden;
   }
 
-  .header {
+  .hero {
     display: flex;
-    align-items: center;
-    gap: 16px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 16px 8px;
   }
 
-  .wave-icon {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    opacity: 0.7;
+  .hero-left {
+    display: flex;
+    flex-direction: column;
   }
 
-  .hero-height {
-    font-size: 3.5em;
-    font-weight: 300;
+
+  .hero-number-row {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .hero-sign {
+    font-size: 42px;
+    font-weight: 600;
     color: var(--primary-text-color);
+    letter-spacing: -0.02em;
     line-height: 1;
   }
 
-  .tide-direction {
-    font-size: 1.8em;
+  .hero-digits-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-number {
+    font-size: 42px;
     font-weight: 600;
     color: var(--primary-text-color);
-    margin-bottom: 2px;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
+    line-height: 1;
   }
 
-  .direction-arrow {
-    font-size: 1.1em;
+  .hero-unit {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-text-color);
+    margin-left: 4px;
   }
 
-  .next-event {
+  .hero-direction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
     font-size: 14px;
     font-weight: 400;
-    color: var(--primary-text-color);
+    color: var(--secondary-text-color);
     margin-top: 4px;
   }
 
-  .next-event-time {
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding-top: 4px;
+  }
+
+  .countdown-label {
     font-size: 12px;
+    font-weight: 400;
     color: var(--secondary-text-color);
+  }
+
+  .countdown-time {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--primary-text-color);
+    letter-spacing: -0.01em;
+    margin-top: 2px;
+    line-height: 1.1;
   }
 
   .chart-container {
     width: 100%;
-    margin-top: 12px;
+    margin-top: 4px;
   }
 
   .chart-container svg {

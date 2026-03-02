@@ -290,7 +290,7 @@ function renderTimeAxis(
     result.push(svg`
       <text x="${x}" y="${TIME_AXIS_Y}" text-anchor="middle"
         font-size="13" font-weight="400"
-        fill="var(--primary-text-color, #212121)" opacity="0.5">${label}</text>
+        fill="var(--secondary-text-color, #999)">${label}</text>
     `);
   }
   return result;
@@ -353,10 +353,10 @@ function renderGridLabels(
     result.push(svg`
       <text x="15" y="${y + 3}" text-anchor="end"
         font-size="11" font-weight="500"
-        fill="var(--secondary-text-color, #999)" opacity="0.5">${num}</text>
+        fill="var(--secondary-text-color, #999)">${num}</text>
       <text x="17" y="${y + 3}" text-anchor="start"
         font-size="11" font-weight="500"
-        fill="var(--secondary-text-color, #999)" opacity="0.5">ft</text>
+        fill="var(--secondary-text-color, #999)">ft</text>
     `);
   }
   return result;
@@ -429,7 +429,7 @@ function renderDayLabelsFromPositions(positions: DayLabelPos[]) {
   return positions.map((pos) => svg`
     <text x="${pos.x}" y="${DAY_LABEL_Y}" text-anchor="start"
       font-size="11" font-weight="600"
-      fill="var(--secondary-text-color, #999)" opacity="0.6">${pos.label}</text>
+      fill="var(--secondary-text-color, #999)">${pos.label}</text>
   `);
 }
 
